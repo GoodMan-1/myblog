@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yang.myblog.dao.FriendLinkDao">
+    <select id="listFriendLink" resultType="com.yang.myblog.pojo.FriendLink">
+        select * from myblog.t_friend order by t_friend.create_time desc
+    </select>
+
+    <insert id="saveFriendLink" parameterType="com.yang.myblog.pojo.FriendLink">
+        insert into myblog.t_friend (blogaddress, blogname, create_time, pictureaddress) VALUES (#{blogaddress}, #{blogname}, #{createTime}, #{pictureaddress})
+    </insert>
+
+    <select id="getFriendLink" resultType="com.yang.myblog.pojo.FriendLink">
+        select * from myblog.t_friend f where f.id = #{id}
+    </select>
+
+    <select id="getFriendLinkByBlogaddress" resultType="com.yang.myblog.pojo.FriendLink">
+        select * from myblog.t_friend f where f.blogaddress = #{blogaddress}
+    </select>
+
+    <update id="updateFriendLink" parameterType="com.yang.myblog.pojo.FriendLink">
+        update myblog.t_friend set blogname = #{blogname}, blogaddress = #{blogaddress}, pictureaddress = #{pictureaddress} where id = #{id}
+    </update>
+
+    <delete id="deleteFriendLink">
+        delete from myblog.t_friend where id = #{id}
+    </delete>
+
+</mapper>

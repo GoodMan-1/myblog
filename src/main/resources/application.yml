@@ -1,0 +1,17 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: pro
+
+comment.avatar: /images/avatar.jpg
+message.avatar: /images/avatar.jpg
+
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:mylittlelamb.ltd.jks
+    key-store-password:
+    key-store-type: JKS
+    enabled: true
+
